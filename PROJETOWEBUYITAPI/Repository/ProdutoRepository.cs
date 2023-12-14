@@ -37,10 +37,15 @@ namespace PROJETOWEBUYITAPI.Repository
             return await GetConnection().QueryFirstAsync<ProdutoEntity>(sql, new {Id});
         }
 
-        async Task<ProdutoEntity> IProdutoRepository.GetByName(string name)
+        /*  async Task<ProdutoEntity> IProdutoRepository.GetByName(string Name)
+          {
+              string sql = "SELECT * FROM PRODUCT WHERE Name = @Name";
+              return await GetConnection().QueryFirstAsync(sql,new { Name});
+          }*/
+        public async Task<ProdutoEntity> GetByName(string Name)
         {
             string sql = "SELECT * FROM PRODUCT WHERE Name = @Name";
-            return await GetConnection().QueryFirstAsync(sql, new {name});
+            return await GetConnection().QueryFirstOrDefaultAsync<ProdutoEntity>(sql, new { Name });
         }
 
         async Task IProdutoRepository.Update(ProdutoEntity produtoEntity)

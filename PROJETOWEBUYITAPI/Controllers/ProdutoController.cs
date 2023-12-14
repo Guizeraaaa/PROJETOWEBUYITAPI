@@ -10,9 +10,9 @@ namespace PROJETOWEBUYITAPI.Controllers
     [Route("product")]
     public class ProdutoController : ControllerBase
     {
-      private readonly IProdutoRepository _produtoRepository;
+        private readonly IProdutoRepository _produtoRepository;
 
-    public ProdutoController(IProdutoRepository produtoRepository)
+        public ProdutoController(IProdutoRepository produtoRepository)
         {
             _produtoRepository = produtoRepository;
         }
@@ -23,7 +23,7 @@ namespace PROJETOWEBUYITAPI.Controllers
         }
 
         [HttpPost]
-        public async  Task<IActionResult> Add(ProdutoDTO produtoDTO)
+        public async Task<IActionResult> Add(ProdutoDTO produtoDTO)
         {
             await _produtoRepository.Add(produtoDTO);
             return Ok();
@@ -41,24 +41,35 @@ namespace PROJETOWEBUYITAPI.Controllers
         public async Task<IActionResult> Delete(int Id)
         {
             await _produtoRepository.Delete(Id);
-                return Ok();
+            return Ok();
 
         }
 
-        [HttpGet("{Id}")]
+        [HttpGet("ById/{id}")]
 
         public async Task<IActionResult> GetById(int id)
         {
             return Ok(await _produtoRepository.GetById(id));
         }
 
-        [HttpGet("{Name}")]
+        /* [HttpGet("ByName/{name}")]
 
-        public async Task<IActionResult> GetByName(string Name)
+         public async Task<IActionResult> GetByName(string Name)
+         {
+             return Ok(await _produtoRepository.GetByName(Name));
+         }*/
+        [HttpGet("ByName/{name}")]
+        public async Task<IActionResult> GetByName(string name)
         {
-            return Ok(await _produtoRepository.GetByName(Name));
+          
+             var result = await _produtoRepository.GetByName(name);
+
+
+                return Ok(result);
+            
         }
 
-    
+
+
     }
-}
+    } 
