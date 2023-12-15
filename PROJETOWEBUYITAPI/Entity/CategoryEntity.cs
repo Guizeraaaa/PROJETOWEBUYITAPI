@@ -1,4 +1,4 @@
-﻿/*
+﻿
     namespace PROJETOWEBUYITAPI.Entity
 {
     public class CategoryEntity
@@ -8,4 +8,3 @@
     
     }
 }
-*/

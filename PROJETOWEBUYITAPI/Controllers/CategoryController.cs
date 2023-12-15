@@ -1,5 +1,5 @@
 ﻿
-/*using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using PROJETOWEBUYITAPI.Contracts.Repository;
 using PROJETOWEBUYITAPI.DTO;
 using PROJETOWEBUYITAPI.Entity;
@@ -27,7 +27,7 @@ namespace PROJETOWEBUYITAPI.Controllers
             return Ok(await _categoryRepository.Get());
         }
 
-        [HttpPost]
+       /* [HttpPost]
 
     public async Task<IActionResult> Add(CategoryDTO categoryDTO)
         {
@@ -51,20 +51,19 @@ namespace PROJETOWEBUYITAPI.Controllers
 
         }
 
-        [HttpGet("{Id}")]
 
+
+        [HttpGet("byidcategory/{Id}", Name = "GetById")]
         public async Task<IActionResult> GetById(int id)
         {
             return Ok(await _categoryRepository.GetById(id));
         }
 
-        [HttpGet("{Name}")]
-
-        public async Task<IActionResult> GetByName(string Name)
+        [HttpGet("bynamecategory/{Name}", Name = "GetByName")]
+        public async Task<IActionResult> GetByName(string name)
         {
-            return Ok(await _categoryRepository.GetByName(Name));
-        }
-
+            return Ok(await _categoryRepository.GetByName(name));
+        }*/
 
 
 
@@ -73,4 +72,3 @@ namespace PROJETOWEBUYITAPI.Controllers
 
     }
 }
-*/

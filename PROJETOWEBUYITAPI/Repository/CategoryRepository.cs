@@ -1,4 +1,4 @@
-﻿/*
+﻿
 
 
 using Dapper;
@@ -12,46 +12,37 @@ namespace PROJETOWEBUYITAPI.Repository
 {
     public class CategoryRepository : Connection, ICategoryRepository
     {
-        async Task ICategoryRepository.Add(CategoryDTO categoryDTO)
-        {
-            string sql = @"                                      
-                        INSERT INTO CATEGORY(Name)
-                        VALUE(@Name)
-                            ";
-            await Execute(sql, categoryDTO);
-        
-        }
+     
 
-        async Task ICategoryRepository.Delete(int id)
-        {
-            string sql = "DELETE FROM CATEGORY WHERE iD = @iD";
-            await Execute(sql, new {id});
-                
-                
-                
-        }
-
-        async Task<IEnumerable<CategoryEntity>> ICategoryRepository.Get()
+      public  async Task<IEnumerable<CategoryEntity>> Get()
         {
             string sql = "SELECT * FROM CATEGORY";
             return await GetConnection().QueryAsync<CategoryEntity>(sql);
         }
 
-        async Task<CategoryEntity> ICategoryRepository.GetById(int Id)
+      /*  async Task<CategoryEntity>GetById(int Id)
         {
             string sql = "SELECT * FROM CATEGORY WHERE Id = @Id)";
             return await GetConnection().QueryFirstAsync<CategoryEntity>(sql, new {Id});
         }
 
-        async Task<CategoryEntity> ICategoryRepository.GetByName(string Name)
+        Task<CategoryEntity> ICategoryRepository.GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        async Task<CategoryEntity> GetByName(string Name)
         {
             string sql = "SELECT * FROM CATEGORY WHERE Name = @Name)";
             return await GetConnection().QueryFirstAsync<CategoryEntity>(sql, new { Name });
         }
 
+        Task<CategoryEntity> ICategoryRepository.GetByName(string Name)
+        {
+            throw new NotImplementedException();
+        }
 
-
-        async Task ICategoryRepository.Update(CategoryEntity categoryEntity)
+        async Task Update(CategoryEntity categoryEntity)
         {
             string sql = @"
                            UPDATE CATEGORY
@@ -59,6 +50,10 @@ namespace PROJETOWEBUYITAPI.Repository
                             ";
             await Execute(sql, categoryEntity);
         }
+
+        Task ICategoryRepository.Update(CategoryEntity categoryEntity)
+        {
+            throw new NotImplementedException();
+        }*/
     }
 }
-*/
