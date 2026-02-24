@@ -1,4 +1,6 @@
 🛒 E-Commerce Web API (.NET)
+
+
 Este repositório contém uma API robusta para um sistema de E-commerce, desenvolvida em ASP.NET Core. O projeto foi estruturado para suportar o gerenciamento de produtos, categorias e lojas, aplicando padrões de design de software modernos e uma arquitetura escalável.
 
 🌟 Diferenciais do Projeto
